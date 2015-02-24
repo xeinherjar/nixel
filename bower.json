@@ -1,0 +1,12 @@
+{
+  "name": "nixel",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    
+    
+    
+    
+    "normalize-css": "~3.0.1"
+  }
+}
