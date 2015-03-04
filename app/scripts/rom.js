@@ -84,6 +84,13 @@ rom.parse = function() {
     rom.chrData[i] = rom.rawData[offset + i];
   }
 
+  console.log('Mapper: ', header.mapper);
+  console.log('PRG_COUNT ', header.prgPageCount);
+  console.log('CHR_COUNT ', header.chrPageCount);
+  console.log('PRG_SIZE  ', header.prgDataSize);
+  console.log('CHR_SIZE  ', header.chrDataSize);
+
+
 
 };
 
