@@ -66,7 +66,7 @@ var search = function() {
   var tmp = 0;
 
   for (var i = 0; i < rom.prgData.length; i++) {
-    if (rom.prgData[i] <= 0x3F) {
+    if (rom.prgData[i] <= 0x40) {
       canidate.push(rom.prgData[i]);
     } else {
       if (canidate.length < 32) {// || canidate.length % 4 !== 0) {
@@ -113,7 +113,7 @@ var renderPalette = function() {
       ['0d', '0e', '0f',
        '1d', '1e', '1f',
        '2d', '2e', '2f',
-       '3d', '3e', '3F'].forEach( function(h) {
+       '3d', '3e', '3f'].forEach( function(h) {
           if (h == hex) { ctx.fillStyle = "rgb(255,255,255)"; }
        });
       ctx.fillText(hex, x + 2, y + 15);
