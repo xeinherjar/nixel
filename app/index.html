@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="../bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="../bower_components/foundation/css/foundation.css" />
+    <link rel="stylesheet" href="../bower_components/foundation-icon-fonts/foundation-icons.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -21,26 +22,26 @@
   </head>
   <body>
 
-    <div class="app-container">
-      <div class="file-nav-container">
-        <div class="file-nav">
-        </div> <!--file-nav-->
+    <div class="app-container" ng-app="nixel">
+      <div class="file-nav-container" ui-view="file">
       </div> <!--file-nav-container-->
 
-      <div class="editor-main-container">
-        <div class="editor-container">
-          <div class="editor">
-            <div class="edit-area">
-            </div> <!--edit-area-->
-            <div class="tool-area">
-            </div> <!--tool-area-->
-          </div> <!--editor-->
+        <div class="editor-main-container">
 
-          <div class="chr-banks">
-          </div> <!--chr-banks-->
-        </div> <!--editor-continer-->
-      </div> <!--editor-main-container-->
-    </div> <!--app-container-->
+          <div class="editor-container">
+            <div class="editor" ui-view="edit">
+            </div> <!--editor-->
+
+             <div class="tool-area" ui-view="tools">
+            </div> <!--tool-area-->
+          </div> <!--editor-continer-->
+
+            <div class="chr-banks" ui-view="chr">
+            </div> <!--chr-banks-->
+
+        </div> <!--editor-main-container-->
+
+   </div> <!--app-container-->
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -54,6 +55,9 @@
     <script src="scripts/rom.js"></script>
     <script src="scripts/sprite.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/chr.controller.js"></script>
+    <script src="scripts/file.controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

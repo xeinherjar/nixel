@@ -5,9 +5,48 @@ body {
 }
 
 
-canvas {
-  margin-left: 10px;
+
+
+.editor-main-container {
+  overflow: auto;
+};
+
+.editor-container {
+  overflow: auto;
+  float: left;
 }
 
+.editor {
+  display: block;
+  float: left;
+}
 
+.edit-area {
+  background-color: RGB(225, 214, 184);
+}
 
+#edit-screen {
+  display: block;
+  background-color: blue;
+}
+
+#edit-palette {
+  display: block;
+  background-color: green;
+}
+
+.tool-area {
+  display: block;
+  float: left;
+  background-color: red;
+}
+
+.chr-banks {
+  display: block;
+  float: right;
+  width: 25%;
+  height: 500px;
+  overflow: scroll;
+  text-align: center;
+  background-color: yellow;
+}
