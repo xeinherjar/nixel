@@ -3,6 +3,8 @@
 
   angular.module('nixel', ['ui.router'])
 
+  .value('ROM', { })
+
   .config(function($stateProvider) {
 
     $stateProvider

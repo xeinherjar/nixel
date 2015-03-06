@@ -5,8 +5,8 @@
   angular.module('nixel')
 
   .controller('fileController', 
-           ['$scope',
-    function($scope) {
+           ['$scope', 'romFactory', 'ROM',
+    function($scope, romFactory, ROM) {
 
       var fileLoadCallback = function(e) {
         var file= e.target.files[0];
@@ -14,13 +14,13 @@
 
         romReader.onloadend = ( function(f) {
           var rawData = new Uint8Array(romReader.result);
-          console.log(rawData); 
+            ROM = romFactory.parse(rawData);
+            console.log(ROM); 
           });
         romReader.readAsArrayBuffer(file);
-
-
         
       };
+
 
       var rom = document.getElementById('romFile');
       rom.addEventListener('change', fileLoadCallback, false);

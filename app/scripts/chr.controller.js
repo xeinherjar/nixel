@@ -4,8 +4,9 @@
   
   angular.module('nixel')
 
-  .controller('chrController', [
-      function() {
+  .controller('chrController', 
+           ['ROM',
+    function(ROM) {
 
     var spriteTable;
     var test = function() {
