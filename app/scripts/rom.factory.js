@@ -31,6 +31,7 @@
         header.inesHeader += String.fromCharCode(rom[i]);
       }
       if (header.inesHeader !== 'NES\x1a') { 
+        console.log(header.inesHeader);
         throw new Error('Not a valid NES rom!');
       }
 
@@ -81,11 +82,12 @@
 
       };
 
-
+    var ROM;
 
 
     return {
       parse : parse,
+      ROM   : ROM,
     };
 
     }

@@ -4,24 +4,16 @@
   
   angular.module('nixel')
 
-  .controller('chrController', 
-           ['ROM',
-    function(ROM) {
+  .controller('chrController',
+           ['$scope', 'chrFactory', 'romFactory',
+    function($scope,   chrFactory,   romFactory) {
 
-    var spriteTable;
-    var test = function() {
-      rom.spriteArrString = sprite.toBinaryStringArray(rom.chrData);
-      rom.spriteTable = sprite.buildSpriteTable(rom.spriteArrString);
-    };
-
-
-
-    var setup = function () {
+    var renderCHR = function () {
       var chr = document.getElementById('chr');
       var spCount = 1;
       var n = 10;
-
-      for (var i = 0; i < rom.spriteTable.length; i++) {
+      
+      for (var i = 0; i < romFactory.ROM.spriteTable.length; i++) {
         if (i % 8 === 0) {
           var canvas = document.createElement('canvas');
           canvas.id = 'ctx' + spCount;
@@ -30,20 +22,20 @@
           spCount++;
           chr.appendChild(canvas);
           var ctx = document.getElementById(canvas.id).getContext('2d');
-          render(ctx, i);
+          renderSprite(ctx, i, 10);
         }
       }
     };
 
-    var render = function(ctx, spNum) {
-      var n = 10;
+    var renderSprite = function(ctx, spNum, scale) {
+      var n = scale;
       var stop = spNum + 8;
 
       for (var i = spNum; i < stop; i++) {
         for (var j = 0; j < 8; j++) {
             var x = j,
                 y = i % 8,
-                s = rom.spriteTable[i][j];
+                s = romFactory.ROM.spriteTable[i][j];
             switch(Number(s)) {
               case 0:
                 ctx.fillStyle = "rgb(255, 255, 255)";
@@ -64,9 +56,15 @@
       }
     };
 
-    setTimeout(test, 3200);
-    setTimeout(setup,4500);
-  }
+    $scope.$on('file:load', function(e) {
+      romFactory.ROM.spriteBinaryStringArray = 
+        chrFactory.toBinaryStringArray(romFactory.ROM.chrData);
+      romFactory.ROM.spriteTable = 
+        chrFactory.buildSpriteTable(romFactory.ROM.spriteBinaryStringArray);
+      renderCHR();
+    });
+
+    }
   ]);
 
 

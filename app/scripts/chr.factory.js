@@ -12,6 +12,7 @@
     var strArr = [];
     var tmp;
 
+    console.log('binarystringarray', chrData);
     for (var i = 0; i< chrData.length; i++) {
           tmp = '00000000' + chrData[i].toString(2);
           tmp = tmp.substr(-8);
@@ -54,6 +55,7 @@
 
   return {
     toBinaryStringArray : toBinaryStringArray,
+    buildSpriteTable    : buildSpriteTable,
   };
 
 
