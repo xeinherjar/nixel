@@ -7,21 +7,22 @@
   .factory('romFactory', [
     function() {
 
-    var header = {
-      inesHeader: '',
-      prgPageCount: 1,
-      chrPageCount: 0,
-      flag06:       0,
-      flag07:       0,
-      prgRAM:       0,
-      format:       0,
-      mapper:       0,
-      trainer:      false,
-      // battery:      false,
-      // mirroring
-    };
-
     var parse = function(rom) {
+
+      var header = {
+        inesHeader: '',
+        prgPageCount: 1,
+        chrPageCount: 0,
+        flag06:       0,
+        flag07:       0,
+        prgRAM:       0,
+        format:       0,
+        mapper:       0,
+        trainer:      false,
+        // battery:      false,
+        // mirroring
+      };
+
 
       var romParts = {};
       romParts.raw = rom;
