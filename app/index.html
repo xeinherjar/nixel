@@ -22,21 +22,21 @@
   </head>
   <body>
 
-    <div class="app-container" ng-app="nixel">
-      <div class="file-nav-container" ui-view="file">
+    <div class="app-container" data-ng-app="nixel">
+      <div class="file-nav-container" data-ui-view="file">
       </div> <!--file-nav-container-->
 
         <div class="editor-main-container">
 
           <div class="editor-container">
-            <div class="editor" ui-view="edit">
+            <div class="editor" data-ui-view="edit">
             </div> <!--editor-->
 
-             <div class="tool-area" ui-view="tools">
+             <div class="tool-area" data-ui-view="tools">
             </div> <!--tool-area-->
           </div> <!--editor-continer-->
 
-            <div class="chr-banks" ui-view="chr">
+            <div class="chr-banks" data-ui-view="chr">
             </div> <!--chr-banks-->
 
         </div> <!--editor-main-container-->
@@ -53,6 +53,7 @@
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/sprite.directive.js"></script>
     <script src="scripts/chr.controller.js"></script>
     <script src="scripts/file.controller.js"></script>
     <script src="scripts/rom.factory.js"></script>
