@@ -22,7 +22,7 @@
     return strArr;
   };
 
-  
+
   var mapBits = function (lowbyte, highbyte) {
     var spriteBits = "";
     var tmplow;
@@ -30,7 +30,7 @@
 
     for (var i=0; i<8; i++) {
       tmplow  = Number(lowbyte[i]);
-      tmphigh = Number(highbyte[i]); 
+      tmphigh = Number(highbyte[i]);
       spriteBits = spriteBits + ((tmphigh << 1) | tmplow);
     }
 
@@ -58,14 +58,29 @@
     }
 
     return spriteTable;
-    //return spriteArr;
   };
+
+
+
+  var spriteTable = [];
+
+  var broadcast = function(state) {
+    $rootScope.$broadcast('chr:spriteTable', state);
+  };
+
+  var update = function(state) {
+    spriteTable = state;
+    broadcast(state);
+  };
+
 
 
 
   return {
     toBinaryStringArray : toBinaryStringArray,
     buildSpriteTable    : buildSpriteTable,
+    spriteTable         : spriteTable,
+    update              : update,
   };
 
 

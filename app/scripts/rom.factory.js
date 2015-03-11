@@ -1,5 +1,5 @@
 ;(function() {
-  
+
   'use strict';
 
   angular.module('nixel')
@@ -31,7 +31,7 @@
       for (i = 0; i < 4; i++) {
         header.inesHeader += String.fromCharCode(rom[i]);
       }
-      if (header.inesHeader !== 'NES\x1a') { 
+      if (header.inesHeader !== 'NES\x1a') {
         console.log(header.inesHeader);
         throw new Error('Not a valid NES rom!');
       }
@@ -83,8 +83,8 @@
 
       };
 
-    var ROM;
-
+    var ROM = {};
+    ROM.spriteTable = [];
 
     return {
       parse : parse,

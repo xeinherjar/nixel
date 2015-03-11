@@ -14,8 +14,8 @@
         editable: '@?',
       },
 
-      controller: ['$scope', '$element', 'romFactory',
-        function($scope, $element, romFactory) {
+      controller: ['$scope', '$element', 'romFactory', '$rootScope',
+        function($scope, $element, romFactory, $rootScope) {
           $scope.$on('file:load', function() {
 
             var n   = $scope.scale;
@@ -50,7 +50,7 @@
             var x = Math.floor(e.offsetX / n),
                 y = Math.floor(e.offsetY / n);
             console.log('index:', idx);
-            $scope.$broadcast('sprite:selected', idx);
+            $rootScope.$broadcast('sprite:selected', idx);
             console.log('x:', x);
             console.log('y:', y);
         });
