@@ -5,8 +5,8 @@
   angular.module('nixel')
 
   .factory('chrFactory',
-      [
-    function() {
+      ['$rootScope',
+    function($rootScope) {
 
   var toBinaryStringArray = function (chrData) {
     var strArr = [];
@@ -62,25 +62,30 @@
 
 
 
-  var spriteTable = [];
+
+  var chrTable;
 
   var broadcast = function(state) {
-    $rootScope.$broadcast('chr:spriteTable', state);
+    $rootScope.$broadcast('chr:chrTable', state);
   };
 
   var update = function(state) {
-    spriteTable = state;
+    chrTable = state;
     broadcast(state);
   };
 
+  var setup = function(chrData) {
+    var spriteBinaryStringArray = toBinaryStringArray(chrData);
+    var table = buildSpriteTable(spriteBinaryStringArray);
+    update(table);
+  };
 
 
 
   return {
-    toBinaryStringArray : toBinaryStringArray,
-    buildSpriteTable    : buildSpriteTable,
-    spriteTable         : spriteTable,
-    update              : update,
+    setup    : setup,
+    chrTable : chrTable,
+    update   : update,
   };
 
 

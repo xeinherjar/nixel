@@ -8,18 +8,17 @@
     function($scope, romFactory, chrFactory) {
 
     $scope.$on('sprite:selected', function(e, idx) {
+      console.log('selected:', idx);
+      console.log('index:', idx);
+    });
+
+    $scope.$on('sprite:edit', function(e, idx, x, y) {
       console.log('edit:', idx);
+      console.log('index:', idx);
+      console.log('x:', x);
+      console.log('y:', y);
     });
 
-
-    $scope.$on('file:load', function(e) {
-      romFactory.ROM.spriteBinaryStringArray =
-        chrFactory.toBinaryStringArray(romFactory.ROM.chrData);
-      romFactory.ROM.spriteTable =
-        chrFactory.buildSpriteTable(romFactory.ROM.spriteBinaryStringArray);
-      $scope.spriteTable = romFactory.ROM.spriteTable;
-
-    });
 
 
 

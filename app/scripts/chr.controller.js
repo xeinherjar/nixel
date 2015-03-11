@@ -10,12 +10,11 @@
 
 
     $scope.$on('file:load', function(e) {
-      romFactory.ROM.spriteBinaryStringArray =
-        chrFactory.toBinaryStringArray(romFactory.ROM.chrData);
-      romFactory.ROM.spriteTable =
-        chrFactory.buildSpriteTable(romFactory.ROM.spriteBinaryStringArray);
-      $scope.spriteTable = romFactory.ROM.spriteTable;
+      chrFactory.setup(romFactory.ROM.chrData);
+    });
 
+    $scope.$on('chr:chrTable', function(e, chrTable) {
+      $scope.spriteTable = chrTable;
       // Needed to fire ng-repeat after ROM load
       $scope.$digest();
     });

@@ -14,9 +14,11 @@
         editable: '@?',
       },
 
-      controller: ['$scope', '$element', 'romFactory', '$rootScope',
-        function($scope, $element, romFactory, $rootScope) {
-          $scope.$on('file:load', function() {
+      controller: ['$scope', '$element', 'chrFactory', '$rootScope',
+        function($scope, $element, chrFactory, $rootScope) {
+
+          $scope.$on('chr:chrTable', function(e, chrTable) {
+            $scope.editable = ($scope.editable === 'true') ? true : false;
 
             var n   = $scope.scale;
             var ctx = $element[0].getContext('2d');
@@ -25,7 +27,7 @@
               for (var j = 0; j < 8; j++) {
                 var x = j,
                     y = i,
-                    s = Number(romFactory.ROM.spriteTable[idx][i][j]);
+                    s = Number(chrTable[idx][i][j]);
                 switch(s) {
                   case 0:
                     ctx.fillStyle = "rgb(255, 255, 255)";
@@ -49,10 +51,11 @@
           $element.bind('click', function(e) {
             var x = Math.floor(e.offsetX / n),
                 y = Math.floor(e.offsetY / n);
-            console.log('index:', idx);
-            $rootScope.$broadcast('sprite:selected', idx);
-            console.log('x:', x);
-            console.log('y:', y);
+            if ($scope.editable) {
+              $rootScope.$broadcast('sprite:edit', idx, x, y);
+            } else {
+              $rootScope.$broadcast('sprite:selected', idx);
+            }
         });
 
 
@@ -67,15 +70,6 @@
 
         el.attr('width',  size);
         el.attr('height', size);
-        /*
-        el.bind('click', function(e) {
-          console.log('index:', scope.spriteIndex);
-          scope.$broadcast('sprite:selected', scope.spriteIndex);
-          console.log('x:', Math.floor(e.offsetX / attr.scale));
-          console.log('y:', Math.floor(e.offsetY / attr.scale));
-        });
-        */
-
       }
     };
 
