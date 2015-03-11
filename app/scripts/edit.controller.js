@@ -4,25 +4,23 @@
   angular.module('nixel')
 
   .controller('editController',
-      ['$scope', 'romFactory', 'chrFactory',
-    function($scope, romFactory, chrFactory) {
+      ['$scope', 'romFactory', 'chrFactory', '$rootScope',
+    function($scope, romFactory, chrFactory,  $rootScope) {
 
-    $scope.$on('sprite:selected', function(e, idx) {
-      console.log('selected:', idx);
-      console.log('index:', idx);
+
+    $scope.select = function(e) {
+      var  idx = e.target.getAttribute('sprite-index'),
+          elid = e.target.id,
+             n = e.target.getAttribute('scale'),
+             x = Math.floor(e.offsetX / n),
+             y = Math.floor(e.offsetY / n);
+    };
+
+
+    $scope.$on('sprite:drop', function(e, idx) {
+      console.log($scope.spriteIndex);
+      console.log('drop:', idx);
     });
-
-    $scope.$on('sprite:edit', function(e, idx, x, y) {
-      console.log('edit:', idx);
-      console.log('index:', idx);
-      console.log('x:', x);
-      console.log('y:', y);
-    });
-
-
-
-
-
 
     }
   ]);

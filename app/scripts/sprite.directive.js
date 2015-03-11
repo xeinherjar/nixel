@@ -48,17 +48,6 @@
               } // j
             } // i
 
-          $element.bind('click', function(e) {
-            var x = Math.floor(e.offsetX / n),
-                y = Math.floor(e.offsetY / n);
-            if ($scope.editable) {
-              $rootScope.$broadcast('sprite:edit', idx, x, y);
-            } else {
-              $rootScope.$broadcast('sprite:selected', idx);
-            }
-        });
-
-
           });
 
         }],

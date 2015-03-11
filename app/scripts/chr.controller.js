@@ -5,8 +5,8 @@
   angular.module('nixel')
 
   .controller('chrController',
-           ['$scope', 'chrFactory', 'romFactory',
-    function($scope,   chrFactory,   romFactory) {
+           ['$scope', 'chrFactory', 'romFactory', '$rootScope',
+    function($scope,   chrFactory,   romFactory,   $rootScope) {
 
 
     $scope.$on('file:load', function(e) {
@@ -18,6 +18,8 @@
       // Needed to fire ng-repeat after ROM load
       $scope.$digest();
     });
+
+
 
     }
   ]);
