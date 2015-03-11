@@ -12,7 +12,6 @@
     var strArr = [];
     var tmp;
 
-    console.log('binarystringarray', chrData);
     for (var i = 0; i< chrData.length; i++) {
           tmp = '00000000' + chrData[i].toString(2);
           tmp = tmp.substr(-8);
@@ -48,7 +47,18 @@
       }
     }
 
-    return spriteArr;
+    var spriteTable = [];
+    var tmp = [];
+    for (var i = 0; i < spriteArr.length; i++) {
+      tmp.push(spriteArr[i]);
+      if (tmp.length === 8) {
+        spriteTable.push(tmp);
+        tmp = [];
+      }
+    }
+
+    return spriteTable;
+    //return spriteArr;
   };
 
 

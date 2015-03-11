@@ -17,7 +17,7 @@
           },
           'edit': {
             templateUrl: '../templates/edit.template.html',
-            controller: function() { console.log('edit-area'); },
+            controller: 'editController',
           },
           'tools': {
             templateUrl: '../templates/tools.template.html',

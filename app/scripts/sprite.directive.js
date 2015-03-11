@@ -3,7 +3,7 @@
 
   angular.module('nixel')
 
-  .directive('nixelSprite', 
+  .directive('nixelSprite',
     function() {
 
     return {
@@ -11,21 +11,21 @@
       scope: {
         spriteIndex: '=',
         scale: '=',
+        editable: '@?',
       },
-      //template: '<canvas></canvas>',
-      controller: ['$scope', '$element', 'romFactory', 
+
+      controller: ['$scope', '$element', 'romFactory',
         function($scope, $element, romFactory) {
           $scope.$on('file:load', function() {
-            console.log(romFactory.ROM.spriteTable[$scope.spriteIndex]);
 
             var n   = $scope.scale;
             var ctx = $element[0].getContext('2d');
             var idx = $scope.spriteIndex;
-            for (var i = idx; i < idx + 8; i++) {
+            for (var i = 0; i < 8; i++) {
               for (var j = 0; j < 8; j++) {
                 var x = j,
-                    y = i % 8,
-                    s = Number(romFactory.ROM.spriteTable[i][j]);
+                    y = i,
+                    s = Number(romFactory.ROM.spriteTable[idx][i][j]);
                 switch(s) {
                   case 0:
                     ctx.fillStyle = "rgb(255, 255, 255)";
@@ -45,13 +45,36 @@
 
               } // j
             } // i
+
+          $element.bind('click', function(e) {
+            var x = Math.floor(e.offsetX / n),
+                y = Math.floor(e.offsetY / n);
+            console.log('index:', idx);
+            $scope.$broadcast('sprite:selected', idx);
+            console.log('x:', x);
+            console.log('y:', y);
+        });
+
+
           });
 
         }],
+
       link: function(scope, el, attr) {
         var e    = el[0];
         var ctx  = e.getContext('2d');
         var size = attr.scale * 8;
+
+        el.attr('width',  size);
+        el.attr('height', size);
+        /*
+        el.bind('click', function(e) {
+          console.log('index:', scope.spriteIndex);
+          scope.$broadcast('sprite:selected', scope.spriteIndex);
+          console.log('x:', Math.floor(e.offsetX / attr.scale));
+          console.log('y:', Math.floor(e.offsetY / attr.scale));
+        });
+        */
 
       }
     };
