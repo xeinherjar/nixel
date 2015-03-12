@@ -49,6 +49,24 @@ canvas {
   background-color: red;
 }
 
+.tool {
+  display: block;
+  float: left;
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-right: 1px solid gray;
+}
+
+.tool:last-child {
+  border-right: 0;
+}
+
+.tool-selected {
+  background-color: lightgray;
+}
+
 .chr-banks {
   display: block;
   float: right;

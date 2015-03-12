@@ -22,7 +22,6 @@
         var tbl;
 
         scope.$watch('spriteIndex', function(e) {
-          console.log('dir: ', e);
           if (!tbl) { return; }
           render(tbl);
         });
@@ -52,7 +51,7 @@
               for (var j = 0; j < 8; j++) {
                 var x = j,
                     y = i,
-                    s = Number(chrTable[idx][i][j]);
+                    s = chrTable[idx][i][j];
                 switch(s) {
                   case 0:
                     ctx.fillStyle = "rgb(255, 255, 255)";

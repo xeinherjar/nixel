@@ -21,7 +21,7 @@
           },
           'tools': {
             templateUrl: '../templates/tools.template.html',
-            controller: function() { console.log('tool-area'); },
+            controller: 'toolController',
           },
           'chr' : {
             templateUrl: '../templates/chr.template.html',

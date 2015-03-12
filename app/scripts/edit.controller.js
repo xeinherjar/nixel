@@ -12,6 +12,10 @@
     $scope.el2 = 2;
     $scope.el3 = 3;
 
+    var pixelValue = 0;
+    $scope.$on('tool:select:value', function(e, pv) {
+      pixelValue = pv;
+    });
 
     $scope.select = function(e) {
       var   id = e.target.getAttribute('sprite-index'),
@@ -20,8 +24,8 @@
              n = e.target.getAttribute('scale'),
              x = Math.floor(e.offsetX / n),
              y = Math.floor(e.offsetY / n);
-      console.log('sel', idx, elid, n, x, y);
-      chrFactory.updateTable(idx, x, y);
+
+      chrFactory.updateTable(idx, x, y, pixelValue);
     };
 
 
