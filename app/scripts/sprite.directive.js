@@ -57,6 +57,10 @@
         var ctx  = e.getContext('2d');
         var size = attr.scale * 8;
 
+        scope.$watch('spriteIndex', function(e) {
+          console.log('dir: ', e);  
+        });
+
         el.attr('width',  size);
         el.attr('height', size);
       }

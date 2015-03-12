@@ -7,6 +7,8 @@
       ['$scope', 'romFactory', 'chrFactory', '$rootScope',
     function($scope, romFactory, chrFactory,  $rootScope) {
 
+    $scope.tmp = 0;
+
 
     $scope.select = function(e) {
       var  idx = e.target.getAttribute('sprite-index'),
@@ -20,6 +22,8 @@
     $scope.$on('sprite:drop', function(e, idx) {
       console.log($scope.spriteIndex);
       console.log('drop:', idx);
+      $scope.tmp = idx;
+      $scope.$digest();
     });
 
     }
