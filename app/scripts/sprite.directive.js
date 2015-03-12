@@ -20,6 +20,9 @@
         var ctx  = e.getContext('2d');
         var size = attr.scale * 8;
         var tbl;
+        var pallete = chrFactory.pallete;
+        //var activePallete = [48, 16, 0, 63];
+        var activePallete = [48, 22, 0, 63];
 
         scope.$watch('spriteIndex', function(e) {
           if (!tbl) { return; }
@@ -54,16 +57,20 @@
                     s = chrTable[idx][i][j];
                 switch(s) {
                   case 0:
-                    ctx.fillStyle = "rgb(255, 255, 255)";
+                    // ctx.fillStyle = "rgb(255, 255, 255)";
+                    ctx.fillStyle = pallete[activePallete[0]];
                     break;
                   case 1:
-                    ctx.fillStyle = "rgb(170, 170, 170)";
+                    // ctx.fillStyle = "rgb(170, 170, 170)";
+                    ctx.fillStyle = pallete[activePallete[1]];
                     break;
                   case 2:
-                    ctx.fillStyle = "rgb(85, 85, 85)";
+                    // ctx.fillStyle = "rgb(85, 85, 85)";
+                    ctx.fillStyle = pallete[activePallete[2]];
                     break;
                   case 3:
-                    ctx.fillStyle = "rgb(0, 0, 0)";
+                    // ctx.fillStyle = "rgb(0, 0, 0)";
+                    ctx.fillStyle = pallete[activePallete[3]];
                     break;
                 }
 
