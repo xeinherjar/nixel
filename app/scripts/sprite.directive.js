@@ -3,8 +3,8 @@
 
   angular.module('nixel')
 
-  .directive('nixelSprite',
-    function() {
+  .directive('nixelSprite', ['chrFactory',
+    function(chrFactory) {
 
     return {
       restrict: 'A',
@@ -14,15 +14,40 @@
         editable: '@?',
       },
 
-      controller: ['$scope', '$element', 'chrFactory', '$rootScope',
-        function($scope, $element, chrFactory, $rootScope) {
+      link: function(scope, el, attr) {
 
-          $scope.$on('chr:chrTable', function(e, chrTable) {
-            $scope.editable = ($scope.editable === 'true') ? true : false;
+        var e    = el[0];
+        var ctx  = e.getContext('2d');
+        var size = attr.scale * 8;
+        var tbl;
 
-            var n   = $scope.scale;
-            var ctx = $element[0].getContext('2d');
-            var idx = $scope.spriteIndex;
+        scope.$watch('spriteIndex', function(e) {
+          console.log('dir: ', e);
+          if (!tbl) { return; }
+          render(tbl);
+        });
+
+        el.attr('width',  size);
+        el.attr('height', size);
+
+        scope.$on('chr:chrTable', function(e, chrTable) {
+          scope.editable = (scope.editable === 'true') ? true : false;
+          tbl = chrTable;
+          render(tbl);
+        });
+
+        scope.$on('chr:chrTable:update', function(e, chrTable) {
+          tbl = chrTable;
+          render(tbl);
+        });
+
+
+          var render = function(chrTable) {
+
+            var n   = scope.scale;
+            var ctx = el[0].getContext('2d');
+            var idx = scope.spriteIndex;
+
             for (var i = 0; i < 8; i++) {
               for (var j = 0; j < 8; j++) {
                 var x = j,
@@ -48,24 +73,17 @@
               } // j
             } // i
 
-          });
 
-        }],
+          };
 
-      link: function(scope, el, attr) {
-        var e    = el[0];
-        var ctx  = e.getContext('2d');
-        var size = attr.scale * 8;
 
-        scope.$watch('spriteIndex', function(e) {
-          console.log('dir: ', e);  
-        });
 
-        el.attr('width',  size);
-        el.attr('height', size);
+
+
+
       }
     };
 
-  });
+  }]);
 
 }());

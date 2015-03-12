@@ -61,6 +61,11 @@
   };
 
 
+  var updateTable = function(idx, x, y) {
+    console.log('chr--', chrTable[idx][y][x]);
+    chrTable[idx][y][x] = 0;
+    update(chrTable);
+  };
 
 
   var chrTable;
@@ -86,6 +91,7 @@
     setup    : setup,
     chrTable : chrTable,
     update   : update,
+    updateTable: updateTable,
   };
 
 

@@ -60,9 +60,10 @@
           e.stopPropogation();
         }
 
+        angular.element(e.target).removeClass('drop-target');
+
         var idx = e.dataTransfer.getData('text');
-        console.log(idx);
-        $rootScope.$broadcast('sprite:drop', idx);
+        $rootScope.$broadcast('sprite:drop', idx, e.target.id);
       });
 
 
