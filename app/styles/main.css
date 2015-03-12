@@ -70,7 +70,7 @@ canvas {
 .chr-banks {
   display: block;
   float: right;
-  width: 164px;
+  width: 40%;
   height: 500px;
   overflow: scroll;
   text-align: center;

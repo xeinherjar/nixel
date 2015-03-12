@@ -10,7 +10,12 @@
 
 
     $scope.$on('file:load', function(e) {
-      chrFactory.setup(romFactory.ROM.chrData);
+      if (romFactory.ROM.chrData.length > 0) {
+        chrFactory.setup(romFactory.ROM.chrData);
+      } else {
+        chrFactory.setup(romFactory.ROM.prgData);
+      }
+
     });
 
     $scope.$on('chr:chrTable', function(e, chrTable) {
