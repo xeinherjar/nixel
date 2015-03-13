@@ -13,6 +13,7 @@
     $scope.el3 = 3;
 
     var pixelValue = 0;
+    // From tool.controller
     $scope.$on('tool:select:value', function(e, pv) {
       pixelValue = pv;
     });

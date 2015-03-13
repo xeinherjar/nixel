@@ -32,7 +32,6 @@
     for (var i=0; i<8; i++) {
       tmplow  = Number(lowbyte[i]);
       tmphigh = Number(highbyte[i]);
-      //spriteBits = spriteBits + ((tmphigh << 1) | tmplow);
       spriteBits.push((tmphigh << 1) | tmplow);
     }
 
@@ -111,6 +110,12 @@
     "rgb(  0, 252, 252)", "rgb(248, 216, 248)", "rgb(  0,   0,   0)",
     "rgb(  0,   0,   0)"
   ];
+
+
+
+  var chrTableToByteArray = function() {
+
+  };
 
 
   return {

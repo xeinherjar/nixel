@@ -43,6 +43,7 @@
           render(tbl);
         });
 
+        // From tool.controller
         scope.$on('pallete:select:value', function(e, idx, val) {
           if (!tbl) { return; }
           activePallete[idx] = val;
