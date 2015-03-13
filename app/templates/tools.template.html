@@ -1,4 +1,16 @@
-<div class="tool" data-ng-click="selectTool($event)">0</div>
-<div class="tool" data-ng-click="selectTool($event)">1</div>
-<div class="tool" data-ng-click="selectTool($event)">2</div>
-<div class="tool" data-ng-click="selectTool($event)">3</div>
+<div class="swatches">
+  <div class="tool tool-selected" data-swatch="s0"
+       data-ng-click="selectTool($event)">0</div>
+  <div class="tool" data-swatch="s1" data-ng-click="selectTool($event)">1</div>
+  <div class="tool" data-swatch="s2" data-ng-click="selectTool($event)">2</div>
+  <div class="tool" data-swatch="s3" data-ng-click="selectTool($event)">3</div>
+</div>
+
+
+<div class="pallete">
+  <div data-ng-repeat="swatch in pallete track by $index"
+       class="sw" style="background-color: {{swatch}};"
+       data-value="{{swatch}}"
+       data-ng-click="selectSwatch($event, $index)">
+  </div>
+</div>

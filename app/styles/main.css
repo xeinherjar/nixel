@@ -25,6 +25,7 @@ canvas {
 .edit-area {
   background-color: RGB(225, 214, 184);
   overflow: auto;
+  margin-left: 5px;
  }
 
  #e0, #e1, #e2, #e3 {
@@ -33,20 +34,13 @@ canvas {
 
  #e2 {
   clear: left;
-  margin-bottom: 12px;
  }
-
-#edit-palette {
-  display: block;
-  clear: left;
-  margin-top: 12px;
-  background-color: green;
-}
 
 .tool-area {
   display: block;
   float: left;
-  background-color: red;
+  width: 200px;
+  margin-left: 50px;
 }
 
 .tool {
@@ -57,14 +51,35 @@ canvas {
   height: 25px;
   text-align: center;
   border-right: 1px solid gray;
+  margin-bottom: 12px;
 }
 
-.tool:last-child {
+.swatches div:last-child {
   border-right: 0;
 }
 
 .tool-selected {
-  background-color: lightgray;
+  border-bottom: 2px solid green;
+  position: relative;
+}
+
+.tool-selected:before {
+  content: "";
+  border-bottom: 1px solid yellow;
+  position: absolute;
+  bottom: 2px;
+}
+
+.pallete {
+  clear: left;
+}
+
+.sw {
+  clear: left;
+  width: 25px;
+  height: 25px;
+  display:inline-block;
+  border: 1px solid white;
 }
 
 .chr-banks {
@@ -74,10 +89,15 @@ canvas {
   height: 500px;
   overflow: scroll;
   text-align: center;
-  background-color: yellow;
+  background-color: RGB(225, 214, 184);
+  margin-right: 5px;
 }
 
+.chr-banks canvas {
+  margin: 2px;
+};
 
 .drop-target {
   border: 1px solid green;
 }
+
