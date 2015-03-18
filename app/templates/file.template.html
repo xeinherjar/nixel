@@ -1,29 +1,21 @@
-<div class="file-nav">
-  <div class="icon-bar four-up">
-    <a class="item" href="#" ng-click="loadROM()">
-      <i class="fi-upload"></i>
-      <label>Load ROM</label>
-    </a>
-
-      <input style="display:none" type="file" accept=".nes"
-        id="romFile" name="romFile" />
-      
-     <a class="item" href="#" ng-click="patchROM()">
-      <i class="fi-download asdf"></i>
-      <label>Patch ROM</label>
-    </a>
-
-    <a class="item" href="#" ng-click="downloadCHR()">
-      <i class="fi-archive"></i>
-      <label>Download CHR</label>
-    </a>
-
-     <a class="item" href="#">
-      <i class="fi-page-export"></i>
-      <label>Export Sprite</label>
-    </a>
- 
+<div class="nav-contents">
+  <div data-ng-click="loadROM()">
+    Load ROM
   </div>
-</div> <!--file-nav-->
 
+  <input style="display:none" type="file" accept=".nes"
+    id="romFile" name="romFile" />
+    
+   <div data-ng-click="patchROM()">
+    Patch ROM
+  </div>
 
+  <div data-ng-click="downloadCHR()">
+    Download CHR
+  </div>
+
+   <div>
+    Export Sprite
+  </div>
+
+</div>

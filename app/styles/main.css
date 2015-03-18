@@ -8,9 +8,37 @@ canvas {
   border: 1px solid black;
 }
 
+.file-nav-container {
+  background-color: RGBA(226, 92, 34, 1);
+  color: RGBA(251, 223, 171, 1);
+}
+
+.nav-contents {
+  overflow: auto;
+  height: 100%;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.nav-contents div {
+  display:block;
+  float: left;
+  padding: 14px 5% 0;
+  height: 30px;
+  border-bottom: 5px solid RGBA(226, 92, 34, 1);
+}
+
+.nav-contents div:hover {
+  cursor: pointer;
+  border-bottom: 5px solid white;
+  color: white;
+}
+
 .editor-main-container {
   overflow: auto;
-};
+  margin: 2% auto;
+  width: 90%;
+}
 
 .editor-container {
   overflow: auto;
@@ -37,10 +65,9 @@ canvas {
  }
 
 .tool-area {
+  clear: left;
   display: block;
-  float: left;
-  width: 200px;
-  margin-left: 50px;
+  overflow: auto;
 }
 
 .tool {
@@ -84,9 +111,9 @@ canvas {
 
 .chr-banks {
   display: block;
-  float: right;
-  width: 40%;
-  height: 500px;
+  float: left;
+  width: 60%;
+  height: 324px;
   overflow: scroll;
   text-align: center;
   background-color: RGB(225, 214, 184);
