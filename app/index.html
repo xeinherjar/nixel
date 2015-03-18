@@ -21,10 +21,16 @@
   <body>
 
     <div class="app-container" data-ng-app="nixel">
-      <div class="file-nav-container" data-ui-view="file">
-      </div> <!--file-nav-container-->
 
-        <div class="editor-main-container">
+      <h1>Nixel</h1>
+
+      <div class="welcome" data-ng-show="show">
+        <div data-ui-view="main">
+        </div>
+      </div>
+
+
+      <div class="editor-main-container" data-ng-hide="show">
 
           <div class="editor-container">
             <div class="editor" data-ui-view="edit">
@@ -35,6 +41,9 @@
 
             <div class="tool-area" data-ui-view="tools">
             </div> <!--tool-area-->
+
+            <div class="file-nav-container" data-ui-view="file">
+            </div> <!--file-nav-container-->
 
           </div> <!--editor-continer-->
         </div> <!--editor-main-container-->
@@ -59,6 +68,8 @@
     <script src="scripts/edit.controller.js"></script>
     <script src="scripts/rom.factory.js"></script>
     <script src="scripts/chr.factory.js"></script>
+
+    <script src="scripts/main.controller.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -1,6 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Press+Start+2P);
+
+@font-face {
+  font-family: 'Handy';
+  src: url('handy.woff') format('woff');
+}
+
+h1 { 
+  font-family: 'Handy', sans-serif;
+  font-size: 72px;
+  background-color: RGBA(226, 92, 34, 1);
+  color: RGBA(251, 223, 171, 1);
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 12px;
+  padding-top: 48px;
+}
+
+
+
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Press Start 2P", Helvetica, Arial, sans-serif;
+  font-size: 12px;
   color: #333;
 }
 
@@ -9,29 +30,9 @@ canvas {
 }
 
 .file-nav-container {
-  background-color: RGBA(226, 92, 34, 1);
-  color: RGBA(251, 223, 171, 1);
-}
-
-.nav-contents {
   overflow: auto;
-  height: 100%;
-  margin: 0 auto;
-  width: 90%;
-}
-
-.nav-contents div {
-  display:block;
+  display: block;
   float: left;
-  padding: 14px 5% 0;
-  height: 30px;
-  border-bottom: 5px solid RGBA(226, 92, 34, 1);
-}
-
-.nav-contents div:hover {
-  cursor: pointer;
-  border-bottom: 5px solid white;
-  color: white;
 }
 
 .editor-main-container {
@@ -68,9 +69,11 @@ canvas {
   clear: left;
   display: block;
   overflow: auto;
+  float: left;
 }
 
 .tool {
+  cursor: pointer;
   display: block;
   float: left;
   background-color: white;
@@ -79,10 +82,40 @@ canvas {
   text-align: center;
   border-right: 1px solid gray;
   margin-bottom: 12px;
+  padding-top: 15px;
 }
 
+.swatches {
+  overflow: auto;
+  display: block;
+  float: left;
+}
 .swatches div:last-child {
   border-right: 0;
+}
+
+.info-hover {
+  float: left;
+  padding-top: 15px;
+  margin-left: 15px;
+  color: RGBA(4, 23, 185, 1);
+  position: relative;
+}
+
+.info-hover span {
+  display: none;
+}
+
+.info-hover:hover span {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  left: 25px;
+  top: 5px;
+  background-color: black;
+  color: white;
 }
 
 .tool-selected {
@@ -99,6 +132,8 @@ canvas {
 
 .pallete {
   clear: left;
+  width: 40%;
+  display: block;
 }
 
 .sw {
@@ -122,9 +157,34 @@ canvas {
 
 .chr-banks canvas {
   margin: 2px;
-};
+}
 
 .drop-target {
   border: 1px solid green;
 }
+
+
+.welcome {
+  overflow: auto;
+ }
+
+ .intro {
+  margin: 0 5%;
+ }
+
+ .btn {
+  cursor: pointer;
+  display:inline-block;
+  padding: 14px 5% 0;
+  height: 30px;
+  color: RGBA(251, 223, 171, 1);
+  background-color: RGBA(226, 92, 34, 1);
+  border-radius: 2px;
+ }
+
+.btn:hover {
+  cursor: pointer;
+  color: white;
+}
+
 

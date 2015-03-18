@@ -8,27 +8,6 @@
            ['$scope', 'romFactory','$rootScope', 'chrFactory',
     function($scope,   romFactory,  $rootScope,   chrFactory) {
 
-      var fileLoadCallback = function(e) {
-        var file= e.target.files[0];
-        var romReader = new FileReader();
-
-        romReader.onloadend = ( function(f) {
-          var rawData = new Uint8Array(romReader.result);
-          romFactory.ROM = romFactory.parse(rawData);
-            $rootScope.$broadcast('file:load');
-          });
-        romReader.readAsArrayBuffer(file);
-
-
-      };
-
-
-      var romFild = document.getElementById('romFile');
-      romFile.addEventListener('change', fileLoadCallback, false);
-
-      $scope.loadROM = function() {
-        romFile.click();
-      };
 
       $scope.downloadCHR = function() {
         var blob = new Blob([romFactory.ROM.chrData],
@@ -47,7 +26,7 @@
         var chrTable = patchChr();
 
         var romBuffer = new ArrayBuffer(romFactory.ROM.raw.length);
-        var rom       = new Uint8Array(romBuffer); 
+        var rom       = new Uint8Array(romBuffer);
 
         // Header is 16 bytes
         for (var i = 0; i < 16; i++) {

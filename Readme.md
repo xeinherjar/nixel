@@ -21,3 +21,6 @@ Todo:
   - Pull sprites from ROMs without CHR banks, ie from PRG (Mega Man, Zelda, Metroid)
   - Write binary patch
   - Edit sprites
+
+fonts: http://www.urbanfonts.com/fonts/superscript.htm
+http://www.iamcal.com/misc/fonts/

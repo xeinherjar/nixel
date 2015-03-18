@@ -8,12 +8,14 @@
     $stateProvider
       .state('editor', {
         url: '',
-        controller: function() { console.log('hi'); },
-        templateUrl: '../templates/editor.template.html',
         views: {
+          'main': {
+            templateUrl: '../templates/main.template.html',
+            controller : 'mainController',
+          },
           'file': {
             templateUrl: '../templates/file.template.html',
-            controller : 'fileController', 
+            controller : 'fileController',
           },
           'edit': {
             templateUrl: '../templates/edit.template.html',
@@ -30,7 +32,7 @@
         },
       });
 
-      
+
   });
 
 
