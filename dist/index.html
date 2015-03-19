@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>nixel</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+
+    <div class="app-container" data-ng-app="nixel">
+
+      <h1>Nixel</h1>
+
+      <div class="welcome" data-ng-show="show">
+        <div data-ui-view="main">
+        </div>
+      </div>
+
+
+      <div class="editor-main-container" data-ng-hide="show">
+
+          <div class="editor-container">
+            <div class="editor" data-ui-view="edit">
+            </div> <!--editor-->
+
+            <div class="chr-banks" data-ui-view="chr">
+            </div> <!--chr-banks-->
+
+            <div class="tool-area" data-ui-view="tools">
+            </div> <!--tool-area-->
+
+            <div class="file-nav-container" data-ui-view="file">
+            </div> <!--file-nav-container-->
+
+          </div> <!--editor-continer-->
+        </div> <!--editor-main-container-->
+
+   </div> <!--app-container-->
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
