@@ -71,7 +71,6 @@ canvas {
 .tool-area {
   clear: left;
   display: block;
-  overflow: auto;
   float: left;
   width: 30%;
 }

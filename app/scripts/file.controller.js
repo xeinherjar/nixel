@@ -33,17 +33,34 @@
           rom[i] = romFactory.ROM.raw[i];
         }
 
-        // Prg Data
+        // chr or prg edited?
+        var chrPresent = romFactory.ROM.header.chrPageCount;
+
+        // If CHR data
+        //  Prg Data
+
         var offset = 16;
-        for (var i = 0; i < romFactory.ROM.header.prgDataSize; i++) {
-          rom[offset + i] = romFactory.ROM.prgData[i];
+        if (chrPresent) {
+          for (var i = 0; i < romFactory.ROM.header.prgDataSize; i++) {
+            rom[offset + i] = romFactory.ROM.prgData[i];
+          }
+
+          // Chr Data
+          offset += romFactory.ROM.header.prgDataSize;
+          for (var i = 0; i < romFactory.ROM.header.chrDataSize; i++) {
+            rom[offset + i] = chrTable[i];
+          }
+
+        // If CHR doesn't exist, then patch PRG only
+        } else {
+          // Prg Data
+          for (var i = 0; i < romFactory.ROM.header.prgDataSize; i++) {
+            rom[offset + i] = chrTable[i];
+          }
+
         }
 
-        // Chr Data
-        offset += romFactory.ROM.header.prgDataSize;
-        for (var i = 0; i < romFactory.ROM.header.chrDataSize; i++) {
-          rom[offset + i] = chrTable[i];
-        }
+
 
         var blob = new Blob([rom],
             { type: 'octet/stream' });
@@ -54,7 +71,15 @@
 
 
       var patchChr = function() {
-        var chrTableBuffer = new ArrayBuffer(romFactory.ROM.chrData.length);
+
+        var chrPresent = romFactory.ROM.header.chrPageCount;
+
+        var chrTableBuffer;
+        if (chrPresent) {
+          chrTableBuffer = new ArrayBuffer(romFactory.ROM.chrData.length);
+        } else {
+          chrTableBuffer = new ArrayBuffer(romFactory.ROM.prgData.length);
+        }
         var chrTable = new Uint8Array(chrTableBuffer);
 
         for (var i = 0, b = 0; i < chrTableToPatch.length; i++) {
@@ -91,8 +116,6 @@
             b += 16;
         } // i loop
 
-        console.log(chrTable);
-        console.log(romFactory.ROM.chrData);
         return chrTable;
       };
 
