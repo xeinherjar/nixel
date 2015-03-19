@@ -2,25 +2,19 @@
 
 A NES Sprite [CHR DATA] editor.
 
-This is to be my Capstone Project at The Iron Yard Atlanta.
-
-The general idea is that a user should be able to upload a ROM and then edit the Sprite [CHR] data.  i.e. Make Mario blue.
-Then download a patched version of their ROM with the change.
+This is my Capstone Project at The Iron Yard Atlanta.
 
 
-This is currently in the exploration phase, I am able to read a ROM file and if it has CHR data then display them as sprites.
+Nixel allows you load a Nintendo ROM file and edit the sprite data contained within.
+You may edit roms with CHR data (most games) or games that load their sprites from PRG data (Zelda, Metroid, Mega Man).
+
+After you make changes you may then patch the ROM and play with your new graphics.
 
 
-Todo:
-  - ~~Read and parse ROM files~~
-  - ~~Read CHR~~
-  - ~~Ability to render sprites~~
-  - ~~Render sprites with canvas~~
-  - Read pallets
-  - Read nametables
-  - Pull sprites from ROMs without CHR banks, ie from PRG (Mega Man, Zelda, Metroid)
-  - Write binary patch
-  - Edit sprites
+Due to how palettes are stored/accessed/used Nixel is not able to edit them.
 
-fonts: http://www.urbanfonts.com/fonts/superscript.htm
-http://www.iamcal.com/misc/fonts/
+
+ROMs are not uploaded to a server for these changes, they all happen locally in the browser.
+
+
+The title font can be found at [http://www.iamcal.com/misc/fonts/](http://www.iamcal.com/misc/fonts/)
