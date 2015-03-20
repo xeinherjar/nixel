@@ -37,8 +37,13 @@
           render(tbl);
         });
 
-        scope.$on('chr:chrTable:update', function(e, chrTable) {
+        scope.$on('chr:chrTable:update', function(e, chrTable, idx) {
           if (!tbl) { return; }
+
+          // Only draw modified
+          var id = scope.spriteIndex;
+          if (id != idx) { return; }
+
           tbl = chrTable;
           render(tbl);
         });

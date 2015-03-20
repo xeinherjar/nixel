@@ -66,7 +66,7 @@
 
   var updateTable = function(idx, x, y, pixelValue) {
     chrTable[idx][y][x] = pixelValue;
-    $rootScope.$broadcast('chr:chrTable:update', chrTable);
+    $rootScope.$broadcast('chr:chrTable:update', chrTable, idx);
   };
 
 
