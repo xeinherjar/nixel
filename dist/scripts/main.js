@@ -77,8 +77,13 @@
           render(tbl);
         });
 
-        scope.$on('chr:chrTable:update', function(e, chrTable) {
+        scope.$on('chr:chrTable:update', function(e, chrTable, idx) {
           if (!tbl) { return; }
+
+          // Only draw modified
+          var id = scope.spriteIndex;
+          if (id != idx) { return; }
+
           tbl = chrTable;
           render(tbl);
         });
@@ -662,7 +667,7 @@
 
   var updateTable = function(idx, x, y, pixelValue) {
     chrTable[idx][y][x] = pixelValue;
-    $rootScope.$broadcast('chr:chrTable:update', chrTable);
+    $rootScope.$broadcast('chr:chrTable:update', chrTable, idx);
   };
 
 
