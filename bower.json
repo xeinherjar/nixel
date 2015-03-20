@@ -2,10 +2,8 @@
   "name": "nixel",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
     "normalize-css": "~3.0.1",
     "angular": "~1.3.14",
-    "foundation": "~5.5.1",
     "angular-ui-router": "~0.2.13"
   }
 }
