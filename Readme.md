@@ -2,6 +2,9 @@
 
 A NES Sprite [CHR DATA] editor.
 
+
+You can use it here: [http://nes.alexpate.net/nixel](http://nes.alexpate.net/nixel)
+
 This is my Capstone Project at The Iron Yard Atlanta.
 
 
