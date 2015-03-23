@@ -131,7 +131,6 @@
             } // j
           } // i
 
-
         };
 
 
@@ -469,9 +468,17 @@
            idx = $scope[id],
           elid = e.target.id,
              n = e.target.getAttribute('scale'),
-             x = Math.floor(e.offsetX / n),
-             y = Math.floor(e.offsetY / n);
+            // offset for webkit, layer for FireFox
+            // layer only works because the div containing
+            // the canvas has its position set to relative
+             x = e.offsetX || e.layerX,
+             y = e.offsetY || e.layerY;
 
+      console.log('update', e);
+
+      x = Math.floor(x / n) % 8;
+      y = Math.floor(y / n) % 8;
+      console.log(x, y);
       chrFactory.updateTable(idx, x, y, pixelValue);
     };
 
