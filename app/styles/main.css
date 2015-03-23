@@ -13,7 +13,7 @@ h1 {
   text-align: center;
   margin-top: 0px;
   margin-bottom: 12px;
-  padding-top: 48px;
+  padding-top: 24px;
 }
 
 
@@ -86,7 +86,7 @@ canvas {
   text-align: center;
   border-right: 1px solid gray;
   margin-bottom: 12px;
-  padding-top: 15px;
+  padding-top: 12px;
 }
 
 .swatches {
@@ -172,9 +172,36 @@ canvas {
   background-color: RGB(225, 214, 184);
   margin-right: 5px;
 }
+.chr-banks div {
+  float: left;
+  margin: 2px 5px;
+}
+.chr-banks div span {
+  display: block;
+  font-size: 6px;
+}
 
 .chr-banks canvas {
   margin: 2px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+}
+
+.chr-banks canvas:active {
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+}
+
+.warn-prg {
+  padding: 5px 8px;
+  text-align: left;
+  line-height: 1.5em;
+  color: rgb(248,  88, 152);
+  background-color: rgb(136,  20,   0); 
+}
+
+.warn-prg .warn-prg-text {
+  font-size: 14px;
 }
 
 .drop-target {
@@ -184,6 +211,7 @@ canvas {
 
 .welcome {
   overflow: auto;
+  line-height: 1.5em;
  }
 
 .intro {
