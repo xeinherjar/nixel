@@ -38,7 +38,6 @@
 
 
     $scope.$on('sprite:drop', function(e, idx, el) {
-      console.log($scope.spriteIndex);
       switch (el) {
         case 'e0':
           $scope.el0 = idx;
