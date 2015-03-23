@@ -52,6 +52,7 @@ canvas {
 .editor {
   display: block;
   float: left;
+  position: relative;
 }
 
 .edit-area {
