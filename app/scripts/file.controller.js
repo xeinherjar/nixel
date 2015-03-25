@@ -13,7 +13,15 @@
         var blob = new Blob([romFactory.ROM.chrData],
             { type: 'octet/stream' });
         var url = window.URL.createObjectURL(blob);
-        window.location.assign(url);
+        //window.location.assign(url);
+
+        var a = document.createElement('a');
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = url;
+        a.download = 'patched.chr';
+        a.click();
+        window.URL.revokeObjectURL(url);
       };
 
 
@@ -65,8 +73,16 @@
         var blob = new Blob([rom],
             { type: 'octet/stream' });
         var url = window.URL.createObjectURL(blob);
-        window.location.assign(url);
+        //window.location.assign(url);
 
+        var a = document.createElement('a');
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = url;
+        a.download = 'patched.nes';
+        a.click();
+        window.URL.revokeObjectURL(url);
+ 
       };
 
 

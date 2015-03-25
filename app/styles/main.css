@@ -16,7 +16,10 @@ h1 {
   padding-top: 24px;
 }
 
-
+h1 a {
+  color: RGBA(251, 223, 171, 1);
+  text-decoration: none;
+}
 
 body {
   background: #fafafa;
