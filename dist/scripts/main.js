@@ -289,7 +289,8 @@
 
         var a = document.createElement('a');
         document.body.appendChild(a);
-        a.style = "display: none";
+        //a.style = 'display: none';
+        a.setAttribute('style', 'display: none');
         a.href = url;
         a.download = 'patched.chr';
         a.click();
@@ -349,7 +350,8 @@
 
         var a = document.createElement('a');
         document.body.appendChild(a);
-        a.style = "display: none";
+        //a.style = 'display: none';
+        a.setAttribute('style', 'display: none');
         a.href = url;
         a.download = 'patched.nes';
         a.click();
