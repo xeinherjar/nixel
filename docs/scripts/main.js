@@ -10,11 +10,11 @@
         url: '',
         views: {
           'main': {
-            templateUrl: '../templates/main.template.html',
+            templateUrl: 'templates/main.template.html',
             controller : 'mainController',
           },
           'file': {
-            templateUrl: '../templates/file.template.html',
+            templateUrl: '/templates/file.template.html',
             controller : 'fileController',
           },
           'edit': {
