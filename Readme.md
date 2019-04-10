@@ -3,7 +3,7 @@
 A NES Sprite [CHR DATA] editor.
 
 
-You can use it here: [xeinherjar.github.io/nixel](xeinherjar.github.io/nixel)
+You can use it here: [xeinherjar.github.io/nixel](https://xeinherjar.github.io/nixel)
 
 This is my Capstone Project at The Iron Yard Atlanta.
 
