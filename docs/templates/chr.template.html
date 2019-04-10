@@ -1,0 +1,14 @@
+<div data-ng-hide="chrAvailable" class="warn-prg">
+<span class="warn-prg-text">
+  This ROM doesn't have CHR data, the PRG data is listed below.  You can scroll to find the sprite data and you can still edit and patch, but because it is in the PRG data there is a chance it could modify the game in unexpected ways.
+</span>
+</div>
+
+<div id="chr">
+  <div data-ng-repeat="sprite in spriteTable">
+    <canvas nixel-sprite sprite-index="$index" scale="4"
+      height="80" width="80" nixel-drag>
+    </canvas>
+    <span>{{ makeHex($index) }}</span>
+  </div>
+</div>
