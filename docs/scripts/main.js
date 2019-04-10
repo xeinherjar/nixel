@@ -14,19 +14,19 @@
             controller : 'mainController',
           },
           'file': {
-            templateUrl: '/templates/file.template.html',
+            templateUrl: 'templates/file.template.html',
             controller : 'fileController',
           },
           'edit': {
-            templateUrl: '../templates/edit.template.html',
+            templateUrl: 'templates/edit.template.html',
             controller: 'editController',
           },
           'tools': {
-            templateUrl: '../templates/tools.template.html',
+            templateUrl: 'templates/tools.template.html',
             controller: 'toolController',
           },
           'chr' : {
-            templateUrl: '../templates/chr.template.html',
+            templateUrl: 'templates/chr.template.html',
             controller: 'chrController',
           },
         },
